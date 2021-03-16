@@ -33,35 +33,37 @@ let package = Package(
     
     //依赖库配置
     dependencies: [
+        //目前没有条件配置了
 //        .package(url: "https://github.com/Alamofire/Alamofire.git",majorVersion:1),
-//        .package(url: "https://github.com/Alamofire/Alamofire.git",
+//        .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",
 //                 from: "5.4.1",
 //                 when: .os(.linux)
 //        ),
 
+        //   .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",from: "4.4.0"),
+
         //第三方有规范的格式: 大版本.小版本.测试版本
-//        .package(url: "https://github.com/Alamofire/Alamofire.git",
+//        .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",
 //                 from: .init(5, 4, 1)
 //        ),
         
 //        //如果只有两位比如5.0
-//        .package(url: "https://github.com/Alamofire/Alamofire.git",
-//                 from: .init(stringLiteral: "5.4")
+//        .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",
+//                 from: .init(stringLiteral: "5.4.1")
 //        ),
         
-        //指定分支/版本/commit，这里与我们再项目中引入Swift Package相对应(Package.Dependency.Requirement中没有定义range)
+        //指定分支/版本/commit，这里与我们再项目中引入Swift
         /*
          指定分支： Package.Dependency.Requirement.branch("master")
-         指定commit： Package.Dependency.Requirement.revision("commit")
-         指定5.4.1版本： Package.Dependency.Requirement.exact("5.4.1")
-         指定5.4.1~6.0.0： Package.Dependency.Requirement.upToNextMajor(from: "5.4.1")
-         指定5.4.1~5.5.0： Package.Dependency.Requirement.upToNextMinor(from: "5.4.1")
+         指定commit： .revision("commit")
+         指定5.4.1版本： .exact("5.4.1")
+         指定5.4.1~6.0.0： .upToNextMajor(from: "5.4.1")
+         指定5.4.1~5.5.0： .upToNextMinor(from: "5.4.1")
+         //指定区间 5.4.1~5.5.6
          */
-        //指定分支
-//        .package(url: "https://github.com/Alamofire/Alamofire.git",
-//                 Package.Dependency.Requirement.branch("master")
+//        .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",
+//                 "5.4.1"..."5.5.6"
 //        ),
-        
         //关联本地支持SPM的库
 //        .package(path: "../Example"),
     ],
