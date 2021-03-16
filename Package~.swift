@@ -23,7 +23,7 @@ let package = Package(
             name: "SwiftPackageByXcode",
             //动态库 or 静态库(默认)
             type: .static, //.dynamic,
-            targets: ["SwiftPackageByXcode"])
+            targets: ["SwiftPackageByXcode"]),
 //        .executable(
 //            name: "SwiftPackageByXcode",
 //            targets: ["SwiftPackageByXcode"]),
