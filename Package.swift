@@ -33,6 +33,7 @@ let package = Package(
     
     //依赖库配置
     dependencies: [
+        .package(name: "Alamofire", url: "https://gitee.com/guaizaizaiguai/Alamofire.git", from: "5.4.1"),
         //目前没有条件配置了
 //        .package(url: "https://github.com/Alamofire/Alamofire.git",majorVersion:1),
 //        .package(url: "https://gitee.com/guaizaizaiguai/Alamofire.git",
@@ -75,22 +76,45 @@ let package = Package(
             //导入依赖
             dependencies: [
 //                "Alamofire",
-//                "UIKit"
+//                .byName(name: "Alamofire"),
+//                .target(name: "Alamofire"),
+//                .product(name: "Alamofire", package: "Alamofire"),
+//                .target(name: "Alamofire", condition: .when(platforms: [.iOS]))
             ],
+            //系统默认公开.h 是 Sources/[targetName]/include 路径，如果要修改需要重写publicHeadersPath（默认在 [Sources]/[targetName] 下）。主要是提供给OC使用的。他代表你要导出给别人用的文件夹, 如果不提供 publicHeadersPath, path: 文件夹下就必须包含一个 include 文件夹, 然后把所有要导出的 .h 放入到其中。
+            //            publicHeadersPath: "../SwiftPackageByXcode",
             //要导出的 module,import后的代码
 //            path:"SwiftPackageByXcode/Sources",
             
-            //系统默认公开.h 是 Sources/[targetName]/include 路径，如果要修改需要重写publicHeadersPath（默认在 [Sources]/[targetName] 下）。主要是提供给OC使用的。他代表你要导出给别人用的文件夹, 如果不提供 publicHeadersPath, path: 文件夹下就必须包含一个 include 文件夹, 然后把所有要导出的 .h 放入到其中。
-            //            publicHeadersPath: "../SwiftPackageByXcode",
+//            _url: "123",
+//            url: "123",
+            
+//            _checksum: "",
+            
             //排除
             exclude:[
                 "Readme.txt"
             ],
+            
+            sources:[
+                
+            ],
+                        
             //资源
             resources:[
                 .process("image.png"),//推荐，会进行适当的优化
                 .copy("BundleData")
             ]
+            
+            
+//            swiftSettings:[
+//                .define("ENABLE_SOMETHING", .when(configuration: .release)),
+//                .define("ENABLE_OTHERTHING", .when(platforms: [.iOS], configuration: .release)),
+//                .define("ENABLE_OTHERTHING", .when(configuration: .debug)),
+//                .unsafeFlags(["-cross-module-optimization"]),
+//                .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release))
+//            ]
+            
             // cSettings: [
             //           .headerSearchPath("path/relative/to/my/target"),
             //             .define("DISABLE_SOMETHING", .when(platforms: [.iOS], configuration: .release)),
@@ -114,5 +138,9 @@ let package = Package(
     swiftLanguageVersions: [
         .v5
     ]
+    
+//    cLanguageStandard:.c11,
+//
+//    cxxLanguageStandard: .cxx14
 )
 
