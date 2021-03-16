@@ -10,7 +10,7 @@ let package = Package(
     
     //平台配置
     platforms: [
-        .iOS(.v10), //枚举定义在 IOSVersion 中
+        .iOS(.v10) //枚举定义在 IOSVersion 中
 //        .macOS(.v10_12),// MacOSVersion
 //        .watchOS(.v5),//WatchOSVersion
 //        .tvOS(.v10),//TVOSVersion
@@ -23,7 +23,8 @@ let package = Package(
             name: "SwiftPackageByXcode",
             //动态库 or 静态库(默认)
             type: .static, //.dynamic,
-            targets: ["SwiftPackageByXcode"])
+            targets: ["SwiftPackageByXcode"]
+        )
 //        .executable(
 //            name: "SwiftPackageByXcode",
 //            targets: ["SwiftPackageByXcode"]),
@@ -103,7 +104,8 @@ let package = Package(
         //测试target
         .testTarget(
             name: "SwiftPackageByXcodeTests",
-            dependencies: ["SwiftPackageByXcode"]),
+            dependencies: ["SwiftPackageByXcode"]
+        ),
     ],
     
     //支持的 Swift 语言版本
