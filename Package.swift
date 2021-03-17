@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+let versionStr = "10.3.0"
+
 let package = Package(
     name: "SwiftPackageByXcode",
     //默认语言
@@ -104,7 +106,7 @@ let package = Package(
             resources:[
                 .process("image.png"),//推荐，会进行适当的优化
                 .copy("BundleData")
-            ]
+            ],
             
             
 //            swiftSettings:[
@@ -115,10 +117,17 @@ let package = Package(
 //                .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release))
 //            ]
             
-            // cSettings: [
-            //           .headerSearchPath("path/relative/to/my/target"),
-            //             .define("DISABLE_SOMETHING", .when(platforms: [.iOS], configuration: .release)),
-            //         ],
+             cSettings: [
+                .headerSearchPath("path/relative/to/my/target"),
+                .define("DISABLE_SOMETHING", .when(platforms: [.iOS], configuration: .release)),
+             ],
+            
+             cxxSettings:[
+                .headerSearchPath("aztec"),
+                .define("REALM_DEBUG", .when(configuration: .debug)),
+                .define("REALM_VERSION_MAJOR", to: String(versionStr.split(separator: "-")[0].split(separator: ".")[0]))
+             ]
+            
             //         swiftSettings: [
             //             .define("ENABLE_SOMETHING", .when(configuration: .release)),
             //         ],
